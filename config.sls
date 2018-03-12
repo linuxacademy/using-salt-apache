@@ -1,9 +1,11 @@
+{% from "apache/map.jinja" import apache with context %}
+
 include:
   - apache
 
 apache_configuration:
   file.managed:
-    - name: /etc/apache2/apache2.conf
-    - source: salt://apache/config/debian-apache2.conf
+    - name: {{ apache.configfile }}
+    - source: {{ apache.configsource }}
     - require:
-      - pkg: apache2
+      - pkg: {{ apache.package }}
