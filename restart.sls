@@ -6,3 +6,4 @@ apache_restart:
     - m_name: {{ apache.service }}
     - onchanges:
       - apache_configuration
+      - apache_envvars
