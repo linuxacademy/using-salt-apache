@@ -1,11 +1,6 @@
-{% set apache = salt['grains.filter_by']({
-'Debian': { 'package': 'apache2' },
-'RedHat': { 'package': 'httpd' },
-}) %}
-
 apache_install:
   pkg.installed:
-    - name: {{ apache.package }}
+    - name:  apache2
   service.running:
-    - name: {{ apache.package }}
+    - name: apache2
     - enable: true
