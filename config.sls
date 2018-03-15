@@ -6,6 +6,7 @@ include:
 apache_configuration:
   file.managed:
     - name: {{ apache.configfile }}
+    - template: jinja
     - source: {{ apache.configsource }}
     - require:
       - pkg: {{ apache.package }}
